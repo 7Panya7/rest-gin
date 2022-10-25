@@ -4,5 +4,5 @@ import "github.com/gin-gonic/gin"
 
 type VideoHandler interface {
 	FindAll() []Video
-	Save(ctx *gin.Context) Video
+	Save(ctx *gin.Context) error
 }

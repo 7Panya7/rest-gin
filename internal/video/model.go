@@ -1,7 +1,10 @@
 package video
 
+import "rest-gin/internal/user"
+
 type Video struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	URL         string `json:"url"`
+	Title       string      `json:"title" binding:"min=2,max=10" validate:"is-cool"`
+	Description string      `json:"description" binding:"max=20"`
+	URL         string      `json:"url" binding:"required,url"`
+	Author      user.Person `json:"author" binding:"required"`
 }
